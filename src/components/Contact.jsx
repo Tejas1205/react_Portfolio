@@ -58,9 +58,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-[#162447] via-[#1f4068] to-[#1b1b2f] opacity-30 blur-3xl"></div>
 
       <div className="container mx-auto relative z-10 flex flex-col gap-10 items-center">
-      <h2 className="text-5xl font-extrabold text-center text-white mt-5">
-  📬 Get in Touch
-</h2>
+        <h2 className="text-5xl font-extrabold text-center text-white mt-5">📬 Get in Touch</h2>
 
         <p className="text-gray-400 text-lg italic text-center max-w-xl mb-6">
           We'd love to hear from you! Whether you have a question, want to collaborate, or just say hi 👋, reach out to us!
@@ -72,7 +70,6 @@ const Contact = () => {
             ref={formRef}
             onSubmit={handleSubmit}
             className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
-
           >
             <input
               type="text"
@@ -104,23 +101,23 @@ const Contact = () => {
             </button>
           </form>
 
-          <div className="flex justify-center gap-6 mt-6">
-            <a href="https://www.facebook.com/tejas.rakhunde" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-600 hover:scale-125 transition-transform">
+          <div className="flex flex-wrap justify-center gap-4 mt-6 sm:gap-6">
+            <a href="https://www.facebook.com/tejas.rakhunde" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-600 hover:scale-110 transition-transform">
               <FaFacebook />
             </a>
-            <a href="https://www.instagram.com/tejas_rakhunde_2001" target="_blank" rel="noopener noreferrer" className="text-3xl text-pink-500 hover:scale-125 transition-transform">
+            <a href="https://www.instagram.com/tejas_rakhunde_2001" target="_blank" rel="noopener noreferrer" className="text-3xl text-pink-500 hover:scale-110 transition-transform">
               <FaInstagram />
             </a>
-            <a href="https://www.linkedin.com/in/tejas-rakhunde-863962214" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-500 hover:scale-125 transition-transform">
+            <a href="https://www.linkedin.com/in/tejas-rakhunde-863962214" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-500 hover:scale-110 transition-transform">
               <FaLinkedin />
             </a>
-            <a href="https://github.com/Tejas1205" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-500 hover:scale-125 transition-transform">
+            <a href="https://github.com/Tejas1205" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-500 hover:scale-110 transition-transform">
               <FaGithub />
             </a>
-            <a href="https://wa.me/+917038729187" target="_blank" rel="noopener noreferrer" className="text-3xl text-green-500 hover:scale-125 transition-transform">
+            <a href="https://wa.me/+917038729187" target="_blank" rel="noopener noreferrer" className="text-3xl text-green-500 hover:scale-110 transition-transform">
               <FaWhatsapp />
             </a>
-            <a href="https://x.com/RakhundeTejas" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-400 hover:scale-125 transition-transform">
+            <a href="https://x.com/RakhundeTejas" target="_blank" rel="noopener noreferrer" className="text-3xl text-blue-400 hover:scale-110 transition-transform">
               <FaTwitter />
             </a>
           </div>
