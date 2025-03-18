@@ -30,7 +30,7 @@ const Services = () => {
 
   return (
     <section id="about" ref={ref}>
-      <div className="py-12 sm:py-16 bg-gradient-to-t from-[#1b1f38] to-[#314d7e] px-6 sm:px-12 flex items-center justify-center">
+      <div className="py-12 sm:py-16 bg-gradient-to-t from-from-[#0a0f1e] to-[#dbeafe] px-6 sm:px-12 flex items-center justify-center">
         <div
           className={`w-full max-w-6xl bg-white/30 backdrop-blur-xl rounded-3xl shadow-2xl p-10 border border-gray-200
             transition-all duration-[2000ms] ease-out transform ${

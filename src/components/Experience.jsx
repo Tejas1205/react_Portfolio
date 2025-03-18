@@ -61,7 +61,7 @@ const Experience = () => {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
-    <section id="experience" className="py-12 sm:py-16 bg-gradient-to-br from-[#f3e5f5] to-[#ffe0b2] px-6 sm:px-12 flex items-center justify-center">
+    <section id="experience" className="py-12 sm:py-16 bg-gradient-to-br from-[#dbeafe] to-[#dbeafe] px-6 sm:px-12 flex items-center justify-center">
 
       <div className="w-full max-w-6xl bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 border border-gray-300" ref={ref}>
         <motion.h2

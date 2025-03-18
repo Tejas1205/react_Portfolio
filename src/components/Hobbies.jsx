@@ -20,7 +20,7 @@ const Hobbies = () => {
 
   return (
     <section id="about hobbies"   ref={ref}>
-      <div className="py-12 sm:py-16 bg-gradient-to-t from-[#0a0f1e] to-[#1e40af] px-6 sm:px-12 flex items-center justify-center">
+      <div className="py-12 sm:py-16 bg-gradient-to-t from-[#dbeafe] to-[#dbeafe] px-6 sm:px-12 flex items-center justify-center">
         <div
           className={`container mx-auto bg-white/40 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-gray-200
           transition-all duration-[1500ms] ease-in-out
