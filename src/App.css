@@ -548,3 +548,11 @@ button:hover {
   border-radius: 8px;
   transition: all 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  body {
+    min-width: 1280px;  /* Prevent responsive scaling */
+    transform: scale(1); /* Keep default scaling */
+    overflow-x: scroll;  /* Allow horizontal scrolling */
+  }
+}
