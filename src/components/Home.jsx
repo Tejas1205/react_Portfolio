@@ -1,17 +1,20 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { Eye } from "lucide-react";
 import imgd from "../assets/mainpageimg.jpg";
 import resume from "./Data/pdf/Tejas Rakhunde Resume (1) (1).pdf";
+import supabase from "../supabase"; // ✅ Import Supabase client
 
 export const Home = () => {
+  const [views, setViews] = useState(0); // ✅ State for page views
+
   const controls = useAnimation();
   const homeRef = useRef(null);
   const isInView = useInView(homeRef, { once: false, amount: 0.3 });
 
   const particlesInit = useCallback(async (engine) => {
+    console.log("Particles Initialized", engine);
     await loadSlim(engine);
   }, []);
 
@@ -23,49 +26,47 @@ export const Home = () => {
     }
   }, [isInView, controls]);
 
-  // View Count with Animation
-  const [views, setViews] = useState(0);
-  const [displayViews, setDisplayViews] = useState(0);
-
+  // ✅ Fetch & Update Page Views
   useEffect(() => {
-    const storedViews = parseInt(localStorage.getItem("pageViews"), 10) || 0;
-    
-    if (!sessionStorage.getItem("viewed")) {
-      const newViews = storedViews + 1; // Increase by only 1
-      localStorage.setItem("pageViews", newViews);
-      sessionStorage.setItem("viewed", "true"); // Prevent multiple updates in the same session
-      setViews(newViews);
+    const fetchAndUpdateViews = async () => {
+      const { data, error } = await supabase
+        .from("page_views")
+        .select("views")
+        .eq("id", 1)
+        .single();
 
-      let start = displayViews;
-      let end = newViews;
-      let duration = 2000;
-      let stepTime = 30;
-      let steps = duration / stepTime;
-      let increment = (end - start) / steps;
+      if (error) {
+        console.error("Error fetching views:", error);
+        return;
+      }
 
-      let current = start;
-      let interval = setInterval(() => {
-        current += increment;
-        setDisplayViews(Math.round(current));
-        if (current >= end) {
-          clearInterval(interval);
-          setDisplayViews(end);
-        }
-      }, stepTime);
+      const currentViews = data?.views || 0;
+      setViews(currentViews);
 
-      return () => clearInterval(interval);
-    } else {
-      setViews(storedViews);
-      setDisplayViews(storedViews);
-    }
+      // ✅ Increment views by 1
+      const { error: updateError } = await supabase
+        .from("page_views")
+        .update({ views: currentViews + 1 })
+        .eq("id", 1);
+
+      if (updateError) {
+        console.error("Error updating views:", updateError);
+      } else {
+        setViews(currentViews + 1);
+      }
+    };
+
+    fetchAndUpdateViews();
   }, []);
 
   return (
     <section id="home" ref={homeRef} className="relative px-4 sm:px-6 lg:px-12 xl:px-24 py-20 overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <img src={imgd} alt="Background" className="w-full h-full object-cover" />
       </div>
 
+      {/* ✅ Particles */}
       <Particles
         id="tsparticles-bg"
         init={particlesInit}
@@ -95,6 +96,7 @@ export const Home = () => {
         }}
       />
 
+      {/* ✅ Main Content */}
       <motion.div
         className="relative z-10 max-w-5xl mx-auto p-5 md:p-12 lg:p-16 border-4 border-white/60 rounded-3xl backdrop-blur-md text-center mt-5"
         initial="hidden"
@@ -109,6 +111,10 @@ export const Home = () => {
           "Bringing ideas to life through innovative designs and cutting-edge development."
         </p>
 
+        {/* ✅ Page Views */}
+        <p className="text-white text-lg mt-2">👀 Views: {views}</p>
+
+        {/* ✅ Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
           <a
             href={resume}
@@ -127,22 +133,7 @@ export const Home = () => {
           </button>
         </div>
 
-        {/* Eye Icon with Animated View Count */}
-        <motion.div
-          className="flex items-center justify-center gap-2 mt-4 text-white text-lg font-semibold"
-          animate={{ opacity: [0, 1] }}
-          transition={{ duration: 1 }}
-        >
-          <Eye size={24} />
-          <motion.span
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 1 }}
-          >
-            {displayViews} Views
-          </motion.span>
-        </motion.div>
-
-        {/* Vision & Mission Cards */}
+        {/* ✅ Vision & Mission Cards */}
         <div className="flex flex-col md:flex-row gap-6 mt-12">
           <motion.div
             className="p-6 md:p-8 lg:p-10 border-2 border-white/25 rounded-3xl backdrop-blur-lg bg-white/10 w-full md:w-1/2"
