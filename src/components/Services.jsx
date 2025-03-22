@@ -24,8 +24,8 @@ const services = [
 
 const Services = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // Animation happens every time the section is revisited
-    threshold: 0.2, // Starts animation when 30% of the section is visible
+    triggerOnce: false,
+    threshold: 0.2,
   });
 
   return (

@@ -441,8 +441,7 @@ a {
 }
  
 
-/* Tailwind Animations */
-/* Add this to your CSS file or Tailwind config */
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -520,7 +519,7 @@ a {
   animation: float 2s ease-in-out infinite;
 }
 
-/* Custom animation for glowing hover effect */
+
 .hover\\:ring-4:hover {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -551,8 +550,8 @@ button:hover {
 
 @media (max-width: 768px) {
   body {
-    min-width: 1280px;  /* Prevent responsive scaling */
-    transform: scale(1); /* Keep default scaling */
-    overflow-x: scroll;  /* Allow horizontal scrolling */
+    min-width: 1280px;  
+    transform: scale(1); 
+    overflow-x: scroll;  
   }
 }

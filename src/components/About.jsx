@@ -28,7 +28,7 @@ const About = () => {
         </motion.h2>
 
         <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-10">
-          {/* Profile Picture */}
+
           <motion.div
             className="w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg hover:shadow-purple-300 transition-transform duration-500 hover:scale-105"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -57,7 +57,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Additional Info Cards */}
+       
         <motion.div
           className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8"
           initial={{ opacity: 0, y: 30 }}

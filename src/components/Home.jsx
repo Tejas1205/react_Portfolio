@@ -26,7 +26,7 @@ export const Home = () => {
     }
   }, [isInView, controls]);
 
-  // ✅ Fetch & Update Page Views
+
   useEffect(() => {
     const fetchAndUpdateViews = async () => {
       const { data, error } = await supabase
@@ -43,7 +43,7 @@ export const Home = () => {
       const currentViews = data?.views || 0;
       setViews(currentViews);
 
-      // ✅ Increment views by 1
+    
       const { error: updateError } = await supabase
         .from("page_views")
         .update({ views: currentViews + 1 })
@@ -59,18 +59,68 @@ export const Home = () => {
     fetchAndUpdateViews();
   }, []);
 
+  
   return (
+
+    
     <section
     id="home"
     ref={homeRef}
     className="relative px-4 sm:px-6 lg:px-12 xl:px-24 py-20 overflow-hidden w-full home-container"
   >
-    {/* ✅ Background Image */}
+   <Particles
+  id="tsparticles"
+  init={particlesInit}
+  options={{
+    fullScreen: { enable: true },
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 120, density: { enable: true, area: 800 } },
+      color: { value: ["#ff7b00", "#ff007b", "#00ffee", "#00ff7b", "#ffea00"] }, // 🎨 Vibrant Colors
+      shape: { type: "circle" },
+      opacity: { 
+        value: 0.8, 
+        animation: { enable: true, speed: 1, minimumValue: 0.3, sync: false }
+      }, 
+      size: { 
+        value: 3.5, 
+        random: true,
+        animation: { enable: true, speed: 4, minimumValue: 1, sync: false }
+      },
+      move: { 
+        enable: true, 
+        speed: 2,  // 🔥 More Dynamic Movement
+        outModes: "bounce"
+      },
+      links: {
+        enable: true,
+        distance: 140, // 🔗 Improved connectivity
+        color: "#ffffff",
+        opacity: 0.5,
+        width: 1.2,
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" }, // 🖱️ Stronger Hover Effect
+        onClick: { enable: true, mode: "push" },
+      },
+      modes: {
+        grab: { distance: 200, links: { opacity: 0.8 } },
+        repulse: { distance: 150, duration: 0.5 },
+        push: { quantity: 6 },
+      },
+    },
+    detectRetina: true,
+  }}
+/>
+
+   
     <div className="absolute inset-0 -z-10 w-full h-full">
       <img src={imgd} alt="Background" className="w-full h-full object-cover" />
     </div>
   
-    {/* ✅ Content Box */}
+ 
     <motion.div
       className="relative z-10 max-w-5xl mx-auto p-5 md:p-12 lg:p-16 border-4 border-white/60 rounded-3xl backdrop-blur-md text-center mt-5 home-content"
       initial="hidden"
@@ -85,10 +135,9 @@ export const Home = () => {
         "Bringing ideas to life through innovative designs and cutting-edge development."
       </p>
   
-      {/* ✅ Views Counter */}
+   
       <p className="text-white text-lg mt-2">👀 Views: {views}</p>
-  
-      {/* ✅ Buttons */}
+ 
       <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4 buttons">
         <a
           href={resume}
@@ -105,7 +154,7 @@ export const Home = () => {
         >
           💼 Hire Me
         </button>
-      </div>{/* ✅ Vision & Mission Cards */}
+      </div>
 <div className="flex flex-col md:flex-row gap-6 mt-12">
   {/* 💡 Vision Card */}
   <motion.div
@@ -121,7 +170,7 @@ export const Home = () => {
     </p>
   </motion.div>
 
-  {/* 🚀 Mission Card */}
+ 
   <motion.div
     className="p-6 md:p-8 lg:p-10 border-2 border-white/25 rounded-3xl backdrop-blur-lg bg-white/10 w-full md:w-1/2"
     variants={{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'; // ✅ Import BrowserRouter
+import { BrowserRouter as Router } from 'react-router-dom'; 
 import "./App.css";
 
 import Navbar from './components/Navbar';
@@ -14,7 +14,7 @@ import Hobbies from './components/Hobbies';
 
 const App = () => {
   return (
-    <Router>  {/* ✅ Wrap everything inside BrowserRouter */}
+    <Router> 
       <> 
         <Navbar/>
         <Home/>

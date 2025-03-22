@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ✅ Ice-Effect Navbar */}
+
       <nav className="fixed w-full z-50 bg-[rgba(11,26,51,0.4)] backdrop-blur-lg shadow-lg border-b border-white/30 py-2 md:py-3">
         <div className="flex items-center justify-between px-4 md:px-6">
           {/* Logo */}
@@ -48,7 +48,7 @@ const Navbar = () => {
             ☰
           </button>
 
-          {/* Navigation Links */}
+        
           <div
             className={`${
               menuOpen ? "flex" : "hidden"
@@ -72,7 +72,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Chatbot Button */}
           <button
             type="button"
             onClick={() => setShowChatbot(true)}
@@ -83,7 +82,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Chatbot Popup */}
+
       {showChatbot && <Chatbot onClose={() => setShowChatbot(false)} />}
     </>
   );

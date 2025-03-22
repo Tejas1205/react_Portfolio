@@ -70,7 +70,7 @@ const Projects = () => {
                 </button>
               </div>
 
-              {/* Graphics Shape */}
+           
               <div className="absolute -top-5 -right-5 bg-purple-500 h-20 w-20 rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
             </motion.div>
           ))}
